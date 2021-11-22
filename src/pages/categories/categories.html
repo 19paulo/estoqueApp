@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categorias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex; margin-top: 5%; flex: 1; flex-direction: column;">
+    <div style="display: flex; flex: 1; flex-direction: row; margin: 0px 10px 10px 10px;">
+      <div style="display: flex; flex: 1; flex-direction: column;">
+        <span>Nome</span>
+      </div>
+      <div style="display: flex; flex: 1; flex-direction: column;">
+        <span>Descrição</span>
+      </div>
+    </div>
+    <hr style="color: #f5f5f5; width: 90%; margin-bottom: 5%;" />
+    <categorie-card *ngFor="let category of categories;" [name]="category.category.name" [description]="category.category.description" (click)="open(category)"></categorie-card>
+  </div>
+
+  <ion-fab right bottom>
+    <button ion-fab color="light" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Categoria: {{ category.name }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="edit()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="display: flex; flex: 1; flex-direction: column;">
+    <ion-item>
+      <ion-label color="primary" stacked>Nome</ion-label>
+      <ion-input type="text" placeholder="Digite o nome" [(ngModel)]="category.category.name" [disabled]="!editCategory"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Descrição</ion-label>
+      <ion-input type="text" placeholder="Digite a descrição" [(ngModel)]="category.category.description" [disabled]="!editCategory"></ion-input>
+    </ion-item>
+
+    <button ion-button color="secondary" clear *ngIf="editCategory" (click)="update()">Salvar</button>
+  </div>
+
+</ion-content>

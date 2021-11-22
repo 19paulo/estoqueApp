@@ -1,0 +1,7 @@
+{
+  "name": "estoqueApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

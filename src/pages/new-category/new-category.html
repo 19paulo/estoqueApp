@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nova Categoria</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="display: flex; flex: 1; flex-direction: column;">
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label color="primary" stacked>Nome</ion-label>
+        <ion-input formControlName="name" required type="text" placeholder="Digite o nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Descrição</ion-label>
+        <ion-input formControlName="description" required type="text" placeholder="Digite a descrição"></ion-input>
+      </ion-item>
+
+      <button ion-button color="secondary" clear (click)="onSubmit()">Salvar</button>
+    </form>
+  </div>
+</ion-content>

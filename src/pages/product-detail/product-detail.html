@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Produto: {{ product.product.name }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="edit()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="display: flex; flex: 1; flex-direction: column;">
+    <ion-item>
+      <ion-label color="primary" stacked>Nome</ion-label>
+      <ion-input type="text" placeholder="Digite o nome" [(ngModel)]="product.product.name" [disabled]="!editProduct">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Descrição</ion-label>
+      <ion-input type="text" placeholder="Digite a descrição" [(ngModel)]="product.product.description"
+        [disabled]="!editProduct"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Categoria</ion-label>
+      <ion-select  *ngIf="editProduct" [(ngModel)]="product.product.categorie" placeholder="Selecione a categoria" [disabled]="!editProduct">
+        <ion-option *ngFor="let category of categories" [value]="category.category">{{ category.category.name }}
+        </ion-option>
+      </ion-select>
+      <ion-input  *ngIf="!editProduct" type="text" [(ngModel)]="product.product.categorie.name"
+        [disabled]="!editProduct"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Preço</ion-label>
+      <ion-input type="number" placeholder="Digite o preço" [(ngModel)]="product.product.price" [disabled]="!editProduct">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Qtd</ion-label>
+      <ion-input type="number" placeholder="Digite a quantidade" [(ngModel)]="product.product.qtd" [disabled]="!editProduct">
+      </ion-input>
+    </ion-item>
+
+    <button ion-button color="secondary" clear *ngIf="editProduct" (click)="update()">Salvar</button>
+  </div>
+
+</ion-content>
